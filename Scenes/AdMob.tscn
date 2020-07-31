@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=1]
+
+[node name="AdMob" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+is_real = true
+banner_on_top = false
+banner_id = "ca-app-pub-7067959384271293/2235520870"
+interstitial_id = "ca-app-pub-7067959384271293/2043949183"
+rewarded_id = "ca-app-pub-7067959384271293/4286969149"
+child_directed = true

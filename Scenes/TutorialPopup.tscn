@@ -1,0 +1,230 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/TutorialPopup.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Quicksand-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/Tutorial/bomb.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Tutorial/lock.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Tutorial/aim.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Tutorial/timer.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Tutorial/eye.png" type="Texture" id=7]
+[ext_resource path="res://Prefabs/RoundedButton.tscn" type="PackedScene" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color( 0, 0, 0, 0.0784314 )
+shadow_size = 8
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="Tutorial" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.498039 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -325.0
+margin_top = -475.0
+margin_right = 325.0
+margin_bottom = 475.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Panel"]
+self_modulate = Color( 0.301961, 0.301961, 0.301961, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -43.5
+margin_top = 16.0
+margin_right = 43.5
+margin_bottom = 30.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Quick tutorial"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="aim" type="TextureRect" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -293.0
+margin_top = -383.0
+margin_right = -158.0
+margin_bottom = -248.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Aim" type="Label" parent="Panel"]
+self_modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -142.0
+margin_top = 141.0
+margin_right = 197.0
+margin_bottom = 171.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Hold to aim, release to shoot"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bomb" type="TextureRect" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -293.0
+margin_top = -232.0
+margin_right = -158.0
+margin_bottom = -97.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bomb" type="Label" parent="Panel"]
+self_modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -142.0
+margin_top = 275.0
+margin_right = 257.0
+margin_bottom = 338.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bombs explode when popped and
+pop every bubble in a small radius"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lock" type="TextureRect" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -293.0
+margin_top = -81.0
+margin_right = -158.0
+margin_bottom = 54.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lock" type="Label" parent="Panel"]
+self_modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -142.0
+margin_top = 426.0
+margin_right = 257.0
+margin_bottom = 489.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Locks require to be popped twice
+to disappear"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="eye" type="TextureRect" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -293.0
+margin_top = 70.0
+margin_right = -158.0
+margin_bottom = 205.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Eye" type="Label" parent="Panel"]
+self_modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -142.0
+margin_top = 577.935
+margin_right = 257.0
+margin_bottom = 640.935
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Eyes slowly make your entire field
+colorless... One by one... Slowly..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="timer" type="TextureRect" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -293.0
+margin_top = 221.0
+margin_right = -158.0
+margin_bottom = 356.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Label" parent="Panel"]
+self_modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -142.0
+margin_top = 728.935
+margin_right = 257.0
+margin_bottom = 791.935
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Timers turn every bubble in a small
+radius into locks after running out"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" parent="Panel" instance=ExtResource( 8 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -95.9999
+margin_bottom = -31.9999
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Got it"
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="queue_free"]

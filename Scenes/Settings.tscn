@@ -1,0 +1,291 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Prefabs/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Icons/back.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Quicksand-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/Settings.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Buttons/slider-back.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Buttons/slider-front.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Buttons/slider-handler.png" type="Texture" id=7]
+[ext_resource path="res://Prefabs/RoundedButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Icons/twitter.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Icons/discord.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Buttons/follow-button.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Buttons/follow-button-shadow.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Icons/youtube.png" type="Texture" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 25, 24 )
+margin_left = 12.0
+margin_right = 12.0
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 100, 96 )
+margin_left = 48.0
+margin_right = 48.0
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 18
+font_data = ExtResource( 3 )
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.72084
+margin_top = -0.666424
+margin_right = -2.72083
+margin_bottom = -0.666382
+rect_pivot_offset = Vector2( 360, 640 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+difficulty_descs = [ "Zen - nothing. Not even score. Just relax.", "Easy - floating balls are removed, new row is added every 7 shots, lower bomb chance", "Normal - floating bubbles are not removed, new row is added every 10 shots, higher lock chance", "Medium - floating bubbles are not removed, new row is added every 5 shots, low bomb chance, high lock chance", "Hard - floating bubbles are not removed, new row is added every 5 shots, no two-colored bubbles" ]
+
+[node name="BackButton" parent="." instance=ExtResource( 1 )]
+self_modulate = Color( 0.301961, 0.301961, 0.301961, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 16.0
+margin_right = 96.0
+margin_bottom = 112.0
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+
+[node name="Title" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 24.0
+margin_right = 348.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundTitle" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -53.5
+margin_top = -301.388
+margin_right = 53.5
+margin_bottom = -256.388
+grow_horizontal = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Sound"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sound" type="HSlider" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -336.0
+margin_top = -262.086
+margin_right = 336.0
+margin_bottom = -222.086
+custom_icons/grabber_disabled = ExtResource( 7 )
+custom_icons/grabber_highlight = ExtResource( 7 )
+custom_icons/grabber = ExtResource( 7 )
+custom_styles/slider = SubResource( 3 )
+custom_styles/grabber_area_highlight = SubResource( 4 )
+custom_styles/grabber_area = SubResource( 4 )
+max_value = 1.0
+step = 0.0
+value = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DifficultyTitle" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -104.388
+margin_right = 80.0
+margin_bottom = -59.388
+grow_horizontal = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Difficulty"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DifficultyDesc" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -328.0
+margin_top = -12.3881
+margin_right = 327.0
+margin_bottom = 35.6119
+grow_horizontal = 2
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Difficulty description"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Difficulty" type="HSlider" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -336.0
+margin_top = -64.388
+margin_right = 336.0
+margin_bottom = -24.388
+custom_icons/grabber_disabled = ExtResource( 7 )
+custom_icons/grabber_highlight = ExtResource( 7 )
+custom_icons/grabber = ExtResource( 7 )
+custom_styles/slider = SubResource( 3 )
+custom_styles/grabber_area_highlight = SubResource( 4 )
+custom_styles/grabber_area = SubResource( 4 )
+max_value = 4.0
+value = 2.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestorePurchases" parent="." instance=ExtResource( 8 )]
+margin_left = -328.0
+margin_top = -200.388
+margin_right = -24.0
+margin_bottom = -120.388
+disabled = true
+text = "Restore purchases"
+
+[node name="PrivacyPolicy" parent="." instance=ExtResource( 8 )]
+margin_left = 23.0
+margin_top = -200.388
+margin_right = 327.0
+margin_bottom = -120.388
+text = "Privacy policy"
+
+[node name="FollowAltered" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.5
+margin_top = 71.6119
+margin_right = 124.5
+margin_bottom = 116.612
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Follow altered"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YouTubeButton" parent="." instance=ExtResource( 1 )]
+self_modulate = Color( 0.988235, 0, 0.0705882, 1 )
+margin_left = -156.0
+margin_top = 127.612
+margin_right = -84.0
+margin_bottom = 199.612
+texture_normal = ExtResource( 11 )
+
+[node name="Icon" type="Sprite" parent="YouTubeButton"]
+position = Vector2( 36, 36 )
+texture = ExtResource( 13 )
+
+[node name="Shadow" type="Sprite" parent="YouTubeButton"]
+position = Vector2( 36, 36 )
+texture = ExtResource( 12 )
+
+[node name="DiscordButton" parent="." instance=ExtResource( 1 )]
+self_modulate = Color( 0.447059, 0.537255, 0.854902, 1 )
+margin_left = -36.0
+margin_top = 127.612
+margin_right = 36.0
+margin_bottom = 199.612
+texture_normal = ExtResource( 11 )
+
+[node name="Icon" type="Sprite" parent="DiscordButton"]
+position = Vector2( 36, 36 )
+texture = ExtResource( 10 )
+
+[node name="Shadow" type="Sprite" parent="DiscordButton"]
+position = Vector2( 36, 36 )
+texture = ExtResource( 12 )
+
+[node name="TwitterButton" parent="." instance=ExtResource( 1 )]
+self_modulate = Color( 0.113725, 0.631373, 0.94902, 1 )
+margin_left = 84.0
+margin_top = 127.612
+margin_right = 156.0
+margin_bottom = 199.612
+texture_normal = ExtResource( 11 )
+
+[node name="Icon" type="Sprite" parent="TwitterButton"]
+position = Vector2( 36, 36 )
+texture = ExtResource( 9 )
+
+[node name="Shadow" type="Sprite" parent="TwitterButton"]
+position = Vector2( 36, 36 )
+texture = ExtResource( 12 )
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -185.5
+margin_top = 215.612
+margin_right = 187.5
+margin_bottom = 290.612
+grow_horizontal = 2
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+text = "You will be redirected to installation page
+in Google Play if you haven't apps installed
+in order to proceed"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="value_changed" from="Sound" to="." method="_on_Sound_value_changed"]
+[connection signal="value_changed" from="Difficulty" to="." method="_on_Difficulty_value_changed"]
+[connection signal="pressed" from="PrivacyPolicy" to="." method="_on_PrivacyPolicy_pressed"]
+[connection signal="pressed" from="YouTubeButton" to="." method="_on_YouTubeButton_pressed"]
+[connection signal="pressed" from="DiscordButton" to="." method="_on_DiscordButton_pressed"]
+[connection signal="pressed" from="TwitterButton" to="." method="_on_TwitterButton_pressed"]

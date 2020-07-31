@@ -1,0 +1,308 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://Scripts/Field.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/bounds.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/circle.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/Quicksand-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sprites/borderline.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/App resources/adaptive-icon-background.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Icons/gem.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Icons/coin.png" type="Texture" id=8]
+[ext_resource path="res://Materials/YellowBubble.tres" type="Material" id=9]
+[ext_resource path="res://Materials/RedBubble.tres" type="Material" id=10]
+[ext_resource path="res://Materials/GreenBubble.tres" type="Material" id=11]
+[ext_resource path="res://Materials/OrangeBubble.tres" type="Material" id=12]
+[ext_resource path="res://Materials/BlueBubble.tres" type="Material" id=13]
+[ext_resource path="res://Materials/LightBlueBubble.tres" type="Material" id=14]
+[ext_resource path="res://Prefabs/Button.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Sprites/Icons/pause.png" type="Texture" id=16]
+[ext_resource path="res://Resources/PointerGradient.tres" type="Gradient" id=17]
+[ext_resource path="res://Sprites/Gimmicks/lock.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Gimmicks/bomb.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Gimmicks/gem.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Gimmicks/eye.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Gimmicks/timer.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Gimmicks/coin.png" type="Texture" id=23]
+[ext_resource path="res://Sounds/pop.wav" type="AudioStream" id=24]
+[ext_resource path="res://Sounds/lock.wav" type="AudioStream" id=25]
+[ext_resource path="res://Sounds/coin.wav" type="AudioStream" id=26]
+[ext_resource path="res://Sounds/eye.wav" type="AudioStream" id=27]
+[ext_resource path="res://Sounds/closed.wav" type="AudioStream" id=28]
+[ext_resource path="res://Sounds/opened.wav" type="AudioStream" id=29]
+[ext_resource path="res://Sounds/game-start.wav" type="AudioStream" id=30]
+[ext_resource path="res://Sounds/bomb.wav" type="AudioStream" id=31]
+[ext_resource path="res://Sounds/shoot.wav" type="AudioStream" id=32]
+[ext_resource path="res://Sounds/timer.wav" type="AudioStream" id=33]
+[ext_resource path="res://Sounds/gem.wav" type="AudioStream" id=34]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+font_data = ExtResource( 4 )
+
+[node name="Bounds" type="TextureRect"]
+pause_mode = 1
+self_modulate = Color( 0.768627, 0.768627, 0.768627, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -200.0
+margin_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 360, 840 )
+mouse_filter = 2
+texture = ExtResource( 2 )
+stretch_mode = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+bubble_materials = [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 13 ) ]
+bomb_tex = ExtResource( 19 )
+lock_tex = ExtResource( 18 )
+coin_tex = ExtResource( 23 )
+gem_tex = ExtResource( 20 )
+eye_tex = ExtResource( 21 )
+timer_tex = ExtResource( 22 )
+start_sound = ExtResource( 30 )
+shoot_sound = ExtResource( 32 )
+pop_sound = ExtResource( 24 )
+bomb_sound = ExtResource( 31 )
+lock_sound = ExtResource( 25 )
+coin_sound = ExtResource( 26 )
+gem_sound = ExtResource( 34 )
+eye_sound = ExtResource( 27 )
+closed_sound = ExtResource( 28 )
+opened_sound = ExtResource( 29 )
+timer_sound = ExtResource( 33 )
+
+[node name="QueueCircle" type="TextureRect" parent="."]
+modulate = Color( 0, 0, 0, 0.498039 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.0
+margin_top = 357.0
+margin_right = 38.0
+margin_bottom = 433.0
+rect_pivot_offset = Vector2( 38, 38 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="BorderLine" type="TextureRect" parent="."]
+self_modulate = Color( 1, 0.7, 0.7, 0.498039 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -344.0
+margin_top = 252.0
+margin_right = 344.0
+margin_bottom = 300.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="c" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Pointer" type="Line2D" parent="c"]
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( -360, -840 )
+points = PoolVector2Array( 360, 1235, 360, 1235, 360, 1235 )
+default_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+gradient = ExtResource( 17 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Bubbles" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -840.0
+margin_right = 360.0
+margin_bottom = 840.0
+rect_pivot_offset = Vector2( 360, 840 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explosions" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -840.0
+margin_right = 360.0
+margin_bottom = 840.0
+rect_pivot_offset = Vector2( 360, 840 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.5
+margin_top = 456.0
+margin_right = 136.5
+margin_bottom = 536.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.6, 0.6, 0.6, 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Counter" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color( 0.768627, 0.768627, 0.768627, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -3824.0
+margin_top = -756.0
+margin_right = -360.0
+margin_bottom = 744.0
+texture = ExtResource( 6 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+self_modulate = Color( 0.768627, 0.768627, 0.768627, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 360.0
+margin_top = -736.0
+margin_right = 3824.0
+margin_bottom = 764.0
+texture = ExtResource( 6 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0.741176 )
+margin_left = 32.0
+margin_top = 216.0
+margin_right = 236.0
+margin_bottom = 280.0
+grow_horizontal = 0
+rect_pivot_offset = Vector2( 204, 0 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wallet" type="HBoxContainer" parent="PanelContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 196.0
+margin_bottom = 56.0
+grow_horizontal = 0
+custom_constants/separation = 16
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Wallet"]
+margin_right = 48.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+texture = ExtResource( 8 )
+stretch_mode = 6
+
+[node name="Coins" type="Label" parent="PanelContainer/Wallet"]
+margin_left = 64.0
+margin_top = 1.0
+margin_right = 86.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "0"
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/Wallet"]
+margin_left = 102.0
+margin_right = 150.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+texture = ExtResource( 7 )
+stretch_mode = 6
+
+[node name="Gems" type="Label" parent="PanelContainer/Wallet"]
+margin_left = 166.0
+margin_top = 1.0
+margin_right = 188.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "0"
+
+[node name="PauseButton" parent="." instance=ExtResource( 15 )]
+self_modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+margin_left = 248.0
+margin_top = 472.0
+margin_right = 296.0
+margin_bottom = 520.0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+texture_disabled = ExtResource( 16 )
+texture_focused = ExtResource( 16 )
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+[connection signal="timeout" from="Cooldown" to="." method="reset_cooldown"]
+[connection signal="timeout" from="Counter" to="." method="add_point"]
+[connection signal="button_down" from="PauseButton" to="." method="_on_PauseButton_button_down"]
+[connection signal="button_up" from="PauseButton" to="." method="_on_PauseButton_button_up"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]

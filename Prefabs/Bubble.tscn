@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Bubbles/0/full.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Bubble.gd" type="Script" id=2]
+[ext_resource path="res://Materials/BlindMask.tres" type="Material" id=3]
+[ext_resource path="res://Sounds/pop.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sprites/Gimmicks/progress-circle.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Bubbles/0/blind.png" type="Texture" id=12]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="Bubble" type="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -640.0
+margin_right = -360.0
+margin_bottom = -640.0
+rect_pivot_offset = Vector2( 30, 30 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlindMask" type="TextureRect" parent="."]
+material = ExtResource( 3 )
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 61.0
+margin_bottom = 61.0
+rect_pivot_offset = Vector2( 31, 31 )
+texture = ExtResource( 12 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 30, 30 )
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 30, 30 )
+scale = Vector2( 3.25, 3.25 )
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="SoundTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="TProgress" type="TextureProgress" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = -30.0
+margin_right = 30.0
+margin_bottom = 30.0
+max_value = 30.0
+step = 0.0
+texture_progress = ExtResource( 10 )
+fill_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LockTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="Bubblefly" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="queue_free"]
+[connection signal="timeout" from="SoundTimer" to="." method="_on_SoundTimer_timeout"]
+[connection signal="timeout" from="LockTimer" to="." method="_on_LockTimer_timeout"]
+[connection signal="timeout" from="Bubblefly" to="." method="_on_Bubblefly_timeout"]

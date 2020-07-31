@@ -1,0 +1,180 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Fonts/Bold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/Quicksand-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/Icons/restart.png" type="Texture" id=3]
+[ext_resource path="res://Prefabs/RoundedButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/GameOver.gd" type="Script" id=5]
+[ext_resource path="res://Sounds/game-over.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sprites/Icons/home.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Icons/new-best.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+outline_color = Color( 0, 0, 0, 0 )
+extra_spacing_top = -6
+extra_spacing_bottom = -5
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 96
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+outline_color = Color( 0, 0, 0, 0 )
+extra_spacing_top = -6
+extra_spacing_bottom = -5
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.29584
+margin_top = 0.37738
+margin_right = -1.29584
+margin_bottom = 0.377441
+rect_pivot_offset = Vector2( 360, 640 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+game_over_messages = [ "Don't worry! You can get more next time!", "Well, you played good, but actually no.", "Never give up! Try more and more!", "Don't cry! You are the best, at least for me!", "This time you made it better than before!", "OwO what's this", "Next time you are gonna make it better!", "Too hard? Set the difficulty in settings!", "Too easy? Set the difficulty in settings!", "A lot of coins to spare? Check out the shop!", "Tired of competition and stuff? You can enable Zen mode in settings!", "Beepity boperty, my coins are now your property :)", "bruh (more like bruhdown)", "Omae wa mou shindeiru 0w0", "Can we get an \"UwU\" in chat?", "The game is hard? Buy some upgrades!", "Not enough coins! Click a \"+\" button in shop to watch an ad and get extra 10 coins!", "You have exceeded my expectations...", "Can we get a \"bruh\" in chat?", "Roses are red, violets are blue, gems are... precious.", "If you caught a bug, make sure to write me in Discord!", "" ]
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -174.5
+margin_top = -240.607
+margin_right = 174.5
+margin_bottom = -160.607
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Game Over"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -328.0
+margin_top = -160.607
+margin_right = 328.0
+margin_bottom = -89.6066
+grow_horizontal = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+text = "Don't worry! You can get more next time!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -328.0
+margin_top = -60.0001
+margin_right = 328.0
+margin_bottom = 59.9999
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "123"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreText" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -328.0
+margin_top = 64.0
+margin_right = 328.0
+margin_bottom = 100.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+text = "score"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewBest" type="TextureRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 32.9551
+margin_top = -84.5549
+margin_right = 128.955
+margin_bottom = 11.4451
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TryAgain" parent="." instance=ExtResource( 4 )]
+margin_left = -180.0
+margin_top = 145.0
+margin_right = 84.0
+margin_bottom = 209.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_disabled = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_color_hover = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_color_pressed = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "        Try again  "
+
+[node name="Icon" type="Sprite" parent="TryAgain"]
+position = Vector2( 16, 8 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="BackToMenu" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 145.0
+margin_right = 180.0
+margin_bottom = 209.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_disabled = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_color_hover = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_color_pressed = Color( 0.301961, 0.301961, 0.301961, 1 )
+align = 2
+
+[node name="Icon" type="Sprite" parent="BackToMenu"]
+position = Vector2( 8, 8 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+[connection signal="pressed" from="TryAgain" to="." method="_on_TryAgain_pressed"]
+[connection signal="pressed" from="BackToMenu" to="." method="_on_BackToMenu_pressed"]

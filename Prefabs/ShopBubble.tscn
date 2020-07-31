@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Shaders/RadialGradient.shader" type="Shader" id=1]
+[ext_resource path="res://Sprites/Bubbles/0/full.png" type="Texture" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/color_from = Color( 1, 1, 1, 1 )
+shader_param/color_to = null
+shader_param/center = Vector2( 0.5, 0 )
+shader_param/border = Vector2( 1, 1 )
+
+[node name="Bubble" type="TextureRect"]
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -640.0
+margin_right = -360.0
+margin_bottom = -640.0
+rect_pivot_offset = Vector2( 30, 30 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

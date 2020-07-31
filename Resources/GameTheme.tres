@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/GameTheme.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+cost = 0
+currency = 0
+bg_color = Color( 0, 0, 0, 1 )
+button_color = Color( 0, 0, 0, 1 )
+title_back = Color( 0, 0, 0, 1 )
+title_front = Color( 0, 0, 0, 1 )
+play_button_back = Color( 0, 0, 0, 1 )
+play_button_front = Color( 0, 0, 0, 1 )
+header_color = Color( 0, 0, 0, 1 )
+button_text_color = Color( 0, 0, 0, 1 )
+paragraph_color = Color( 0, 0, 0, 1 )

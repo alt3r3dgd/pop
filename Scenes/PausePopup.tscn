@@ -1,0 +1,151 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Prefabs/RoundedButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/Quicksand-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/PausePopup.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Icons/resume.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Icons/quit.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Buttons/slider-front.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Buttons/slider-handler.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Buttons/slider-back.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color( 0, 0, 0, 0.0784314 )
+shadow_size = 8
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 25, 24 )
+margin_left = 12.0
+margin_right = 12.0
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 100, 96 )
+margin_left = 48.0
+margin_right = 48.0
+
+[node name="Background" type="ColorRect"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.498039 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -324.0
+margin_top = -108.0
+margin_right = 326.0
+margin_bottom = 180.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -238.0
+margin_right = 239.0
+margin_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Paused"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundTitle" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -238.5
+margin_top = -50.091
+margin_right = 238.5
+margin_bottom = -10.091
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+text = "Sound"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" parent="Panel" instance=ExtResource( 1 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -152.0
+margin_top = -94.0
+margin_right = 40.0
+margin_bottom = -30.0
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Resume"
+icon = ExtResource( 4 )
+
+[node name="Quit" parent="Panel" instance=ExtResource( 1 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 72.0
+margin_top = -94.0
+margin_right = 136.0
+margin_bottom = -30.0
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+icon = ExtResource( 5 )
+
+[node name="Sound" type="HSlider" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -304.0
+margin_top = -11.45
+margin_right = 304.0
+margin_bottom = 28.55
+custom_icons/grabber_disabled = ExtResource( 7 )
+custom_icons/grabber_highlight = ExtResource( 7 )
+custom_icons/grabber = ExtResource( 7 )
+custom_styles/slider = SubResource( 4 )
+custom_styles/grabber_area_highlight = SubResource( 5 )
+custom_styles/grabber_area = SubResource( 5 )
+max_value = 1.0
+step = 0.0
+value = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="pressed" from="Panel/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="value_changed" from="Panel/Sound" to="." method="_on_Sound_value_changed"]
+[connection signal="timeout" from="Timer" to="." method="queue_free"]

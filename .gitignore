@@ -1,0 +1,8 @@
+.import
+.fscache
+export.cfg
+export_presets.cfg
+*.translation
+admob-lib
+android
+pop.*

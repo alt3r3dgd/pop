@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gem.wav-72dbf5f7bea203e02aef0baf13898ac2.sample"
+
+[deps]
+
+source_file="res://Sounds/gem.wav"
+dest_files=[ "res://.import/gem.wav-72dbf5f7bea203e02aef0baf13898ac2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

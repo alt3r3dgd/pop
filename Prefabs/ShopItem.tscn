@@ -1,0 +1,197 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Materials/BlueBubble.tres" type="Material" id=1]
+[ext_resource path="res://Materials/OrangeBubble.tres" type="Material" id=2]
+[ext_resource path="res://Materials/GreenBubble.tres" type="Material" id=3]
+[ext_resource path="res://Materials/RedBubble.tres" type="Material" id=4]
+[ext_resource path="res://Materials/YellowBubble.tres" type="Material" id=5]
+[ext_resource path="res://Materials/ShopItem.tres" type="Material" id=6]
+[ext_resource path="res://Materials/LightBlueBubble.tres" type="Material" id=7]
+[ext_resource path="res://Scripts/ShopItem.gd" type="Script" id=8]
+[ext_resource path="res://Prefabs/ShopBubble.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Fonts/Quicksand-Bold.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Sprites/Buttons/shop-item-shadow.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Icons/coin.png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color( 0, 0, 0, 0.0784314 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 0.0980392 )
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="DynamicFont" id=8]
+size = 32
+font_data = ExtResource( 10 )
+
+[node name="ShopItem" type="Panel"]
+margin_right = 200.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 200, 128 )
+rect_pivot_offset = Vector2( 100, 64 )
+mouse_filter = 1
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+keep_pressed_outside = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 100, 64 )
+texture = ExtResource( 11 )
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+material = ExtResource( 6 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+mouse_filter = 2
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bubbles" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedBubble" parent="Bubbles" instance=ExtResource( 9 )]
+material = ExtResource( 4 )
+margin_left = -88.0
+margin_top = -45.0
+margin_right = -28.0
+margin_bottom = 15.0
+rect_scale = Vector2( 0.75, 0.75 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+
+[node name="OrangeBubble" parent="Bubbles" instance=ExtResource( 9 )]
+material = ExtResource( 2 )
+margin_left = -36.0
+margin_top = -45.0
+margin_right = 24.0
+margin_bottom = 15.0
+rect_scale = Vector2( 0.75, 0.75 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+
+[node name="YellowBubble" parent="Bubbles" instance=ExtResource( 9 )]
+material = ExtResource( 5 )
+margin_left = 16.0
+margin_top = -45.0
+margin_right = 76.0
+margin_bottom = 15.0
+rect_scale = Vector2( 0.75, 0.75 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+
+[node name="GreenBubble" parent="Bubbles" instance=ExtResource( 9 )]
+material = ExtResource( 3 )
+margin_left = -62.0
+margin_top = 0.0
+margin_right = -2.0
+margin_bottom = 60.0
+rect_scale = Vector2( 0.75, 0.75 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+
+[node name="LightBlueBubble" parent="Bubbles" instance=ExtResource( 9 )]
+material = ExtResource( 7 )
+margin_left = -9.99999
+margin_top = 0.0
+margin_right = 50.0
+margin_bottom = 60.0
+rect_scale = Vector2( 0.75, 0.75 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+
+[node name="BlueBubble" parent="Bubbles" instance=ExtResource( 9 )]
+material = ExtResource( 1 )
+margin_left = 42.0
+margin_top = 0.0
+margin_right = 102.0
+margin_bottom = 60.0
+rect_scale = Vector2( 0.75, 0.75 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="."]
+margin_top = 83.0
+margin_right = 200.0
+margin_bottom = 128.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -45.0
+margin_right = 1.52588e-05
+mouse_filter = 2
+custom_constants/separation = 8
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Currency" type="TextureRect" parent="CostContainer"]
+margin_left = 60.0
+margin_right = 92.0
+margin_bottom = 45.0
+mouse_filter = 2
+size_flags_horizontal = 0
+texture = ExtResource( 12 )
+stretch_mode = 6
+
+[node name="Cost" type="Label" parent="CostContainer"]
+margin_left = 100.0
+margin_top = 2.0
+margin_right = 140.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 8 )
+text = "00"
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

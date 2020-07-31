@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://Materials/YellowBubble.tres" type="Material" id=2]
+[ext_resource path="res://Materials/RedBubble.tres" type="Material" id=3]
+[ext_resource path="res://Materials/GreenBubble.tres" type="Material" id=4]
+[ext_resource path="res://Materials/OrangeBubble.tres" type="Material" id=5]
+[ext_resource path="res://Materials/BlueBubble.tres" type="Material" id=6]
+[ext_resource path="res://Materials/LightBlueBubble.tres" type="Material" id=7]
+
+[node name="Main" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+bubble_materials = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 6 ) ]
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BgTexture" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]

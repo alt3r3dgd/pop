@@ -1,0 +1,230 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Fonts/Quicksand-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/Icons/coin-large.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/ShopPopup.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Icons/cancel.png" type="Texture" id=4]
+[ext_resource path="res://Prefabs/RoundedButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Shaders/RadialGradient.shader" type="Shader" id=6]
+[ext_resource path="res://Prefabs/ShopBubble.tscn" type="PackedScene" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color( 0, 0, 0, 0.0784314 )
+shadow_size = 16
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/color_from = Color( 1, 1, 1, 1 )
+shader_param/color_to = null
+shader_param/center = Vector2( 0.5, 0 )
+shader_param/border = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/color_from = Color( 1, 1, 1, 1 )
+shader_param/color_to = null
+shader_param/center = Vector2( 0.5, 0 )
+shader_param/border = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/color_from = Color( 1, 1, 1, 1 )
+shader_param/color_to = null
+shader_param/center = Vector2( 0.5, 0 )
+shader_param/border = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/color_from = Color( 1, 1, 1, 1 )
+shader_param/color_to = null
+shader_param/center = Vector2( 0.5, 0 )
+shader_param/border = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/color_from = Color( 1, 1, 1, 1 )
+shader_param/color_to = null
+shader_param/center = Vector2( 0.5, 0 )
+shader_param/border = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/color_from = Color( 1, 1, 1, 1 )
+shader_param/color_to = null
+shader_param/center = Vector2( 0.5, 0 )
+shader_param/border = Vector2( 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="DynamicFont" id=9]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="Background" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 360, 640 )
+color = Color( 0, 0, 0, 0.498039 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.49899
+anchor_right = 0.5
+anchor_bottom = 0.49899
+margin_left = -325.0
+margin_top = -326.584
+margin_right = 325.0
+margin_bottom = 323.416
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Background" type="TextureRect" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bubbles" type="Control" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Red" parent="Popup/Bubbles" instance=ExtResource( 7 )]
+material = SubResource( 2 )
+margin_left = -181.379
+margin_top = -183.0
+margin_right = -121.379
+margin_bottom = -123.0
+rect_scale = Vector2( 1.5, 1.5 )
+
+[node name="Orange" parent="Popup/Bubbles" instance=ExtResource( 7 )]
+material = SubResource( 3 )
+margin_left = -59.3794
+margin_top = -183.0
+margin_right = 0.620575
+margin_bottom = -123.0
+rect_scale = Vector2( 1.5, 1.5 )
+
+[node name="Yellow" parent="Popup/Bubbles" instance=ExtResource( 7 )]
+material = SubResource( 4 )
+margin_left = 62.6206
+margin_top = -183.0
+margin_right = 122.621
+margin_bottom = -123.0
+rect_scale = Vector2( 1.5, 1.5 )
+
+[node name="Green" parent="Popup/Bubbles" instance=ExtResource( 7 )]
+material = SubResource( 5 )
+margin_left = -120.379
+margin_top = -77.0
+margin_right = -60.3794
+margin_bottom = -17.0
+rect_scale = Vector2( 1.5, 1.5 )
+
+[node name="LightBlue" parent="Popup/Bubbles" instance=ExtResource( 7 )]
+material = SubResource( 6 )
+margin_left = 1.62054
+margin_top = -77.0
+margin_right = 61.6205
+margin_bottom = -17.0
+rect_scale = Vector2( 1.5, 1.5 )
+
+[node name="Blue" parent="Popup/Bubbles" instance=ExtResource( 7 )]
+material = SubResource( 7 )
+margin_left = 123.621
+margin_top = -77.0
+margin_right = 183.621
+margin_bottom = -17.0
+rect_scale = Vector2( 1.5, 1.5 )
+
+[node name="Yes" parent="Popup" instance=ExtResource( 5 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -138.0
+margin_top = -96.0
+margin_right = 42.0
+margin_bottom = -32.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "00"
+icon = ExtResource( 2 )
+expand_icon = true
+
+[node name="No" parent="Popup" instance=ExtResource( 5 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 74.0
+margin_top = -96.0
+margin_right = 138.0
+margin_bottom = -32.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+icon = ExtResource( 4 )
+
+[node name="ConfirmText" type="Label" parent="Popup"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -150.0
+margin_bottom = -110.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Buy this background?"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="pressed" from="Popup/Yes" to="." method="_on_Yes_pressed"]
+[connection signal="pressed" from="Popup/No" to="." method="close"]
+[connection signal="timeout" from="Timer" to="." method="queue_free"]

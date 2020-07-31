@@ -1,0 +1,248 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Sprites/Buttons/follow-button-shadow.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Buttons/button.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Buttons/button-shadow.png" type="Texture" id=3]
+[ext_resource path="res://Prefabs/Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fonts/Quicksand-Bold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scripts/MenuMain.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/Buttons/play-button-front.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Icons/youtube.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Buttons/follow-button.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Icons/discord.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Icons/settings.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/title-front.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Icons/leaderboards.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Icons/shop.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Buttons/play-button-back.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/title-back.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Icons/achievements.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Icons/twitter.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Buttons/play-button-shadow.png" type="Texture" id=19]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 5 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.34045
+margin_right = -3.34045
+rect_pivot_offset = Vector2( 360, 640 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="."]
+self_modulate = Color( 0.5, 1, 0.75, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -360.0
+margin_right = 180.0
+margin_bottom = -196.0
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleFront" type="Sprite" parent="Title"]
+self_modulate = Color( 1, 0.5, 1, 1 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="PlayButton" parent="." instance=ExtResource( 4 )]
+self_modulate = Color( 1, 0.5, 0.5, 1 )
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 15 )
+
+[node name="Front" type="Sprite" parent="PlayButton"]
+self_modulate = Color( 0.9, 0.45, 0.45, 1 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Shadow" type="Sprite" parent="PlayButton"]
+self_modulate = Color( 0.9, 0.45, 0.45, 1 )
+texture = ExtResource( 19 )
+centered = false
+offset = Vector2( -16, -16 )
+
+[node name="ShopButton" parent="." instance=ExtResource( 4 )]
+margin_left = 132.0
+margin_top = -64.0
+margin_right = 260.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+
+[node name="Icon" type="Sprite" parent="ShopButton"]
+position = Vector2( 64, 64 )
+texture = ExtResource( 14 )
+
+[node name="Shadow" type="Sprite" parent="ShopButton"]
+self_modulate = Color( 0.9, 0.45, 0.45, 1 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -16, -16 )
+
+[node name="SettingsButton" parent="." instance=ExtResource( 4 )]
+margin_left = -260.0
+margin_top = -64.0
+margin_right = -132.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+
+[node name="Icon" type="Sprite" parent="SettingsButton"]
+position = Vector2( 64, 64 )
+texture = ExtResource( 11 )
+
+[node name="Shadow" type="Sprite" parent="SettingsButton"]
+self_modulate = Color( 0.9, 0.45, 0.45, 1 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -16, -16 )
+
+[node name="AchievementsButton" parent="." instance=ExtResource( 4 )]
+margin_left = -196.0
+margin_top = 100.0
+margin_right = -68.0
+margin_bottom = 228.0
+texture_normal = ExtResource( 2 )
+
+[node name="Icon" type="Sprite" parent="AchievementsButton"]
+position = Vector2( 64, 64 )
+texture = ExtResource( 17 )
+
+[node name="Shadow" type="Sprite" parent="AchievementsButton"]
+self_modulate = Color( 0.9, 0.45, 0.45, 1 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -16, -16 )
+
+[node name="LeaderboardsButton" parent="." instance=ExtResource( 4 )]
+margin_left = 68.0
+margin_top = 100.0
+margin_right = 196.0
+margin_bottom = 228.0
+texture_normal = ExtResource( 2 )
+
+[node name="Icon" type="Sprite" parent="LeaderboardsButton"]
+position = Vector2( 64, 64 )
+texture = ExtResource( 13 )
+
+[node name="Shadow" type="Sprite" parent="LeaderboardsButton"]
+self_modulate = Color( 0.9, 0.45, 0.45, 1 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -16, -16 )
+
+[node name="YouTubeButton" parent="." instance=ExtResource( 4 )]
+self_modulate = Color( 0.988235, 0, 0.0705882, 1 )
+margin_left = -156.0
+margin_top = 353.0
+margin_right = -84.0
+margin_bottom = 425.0
+texture_normal = ExtResource( 9 )
+
+[node name="Icon" type="Sprite" parent="YouTubeButton"]
+position = Vector2( 36, 36 )
+texture = ExtResource( 8 )
+
+[node name="Shadow" type="Sprite" parent="YouTubeButton"]
+self_modulate = Color( 0.9, 0.45, 0.45, 1 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -16, -16 )
+
+[node name="DiscordButton" parent="." instance=ExtResource( 4 )]
+self_modulate = Color( 0.447059, 0.537255, 0.854902, 1 )
+margin_left = -36.0
+margin_top = 353.0
+margin_right = 36.0
+margin_bottom = 425.0
+texture_normal = ExtResource( 9 )
+
+[node name="Icon" type="Sprite" parent="DiscordButton"]
+position = Vector2( 36, 36 )
+texture = ExtResource( 10 )
+
+[node name="Shadow" type="Sprite" parent="DiscordButton"]
+self_modulate = Color( 0.9, 0.45, 0.45, 1 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -16, -16 )
+
+[node name="TwitterButton" parent="." instance=ExtResource( 4 )]
+self_modulate = Color( 0.113725, 0.631373, 0.94902, 1 )
+margin_left = 84.0
+margin_top = 353.0
+margin_right = 156.0
+margin_bottom = 425.0
+texture_normal = ExtResource( 9 )
+
+[node name="Icon" type="Sprite" parent="TwitterButton"]
+position = Vector2( 36, 36 )
+texture = ExtResource( 18 )
+
+[node name="Shadow" type="Sprite" parent="TwitterButton"]
+self_modulate = Color( 0.9, 0.45, 0.45, 1 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -16, -16 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.5
+margin_top = 297.0
+margin_right = 125.5
+margin_bottom = 342.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.3, 0.3, 0.3, 1 )
+text = "Follow altered"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.5
+margin_top = 440.0
+margin_right = 125.5
+margin_bottom = 485.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+text = "You will be redirected to installation page
+in Google Play if you haven't apps installed
+in order to proceed"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="ShopButton" to="." method="_on_ShopButton_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="AchievementsButton" to="." method="_on_AchievementsButton_pressed"]
+[connection signal="pressed" from="LeaderboardsButton" to="." method="_on_LeaderboardsButton_pressed"]
+[connection signal="pressed" from="YouTubeButton" to="." method="_on_YouTubeButton_pressed"]
+[connection signal="pressed" from="DiscordButton" to="." method="_on_DiscordButton_pressed"]
+[connection signal="pressed" from="TwitterButton" to="." method="_on_TwitterButton_pressed"]

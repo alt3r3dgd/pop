@@ -1,0 +1,123 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Sprites/Bubbles/0/blind.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Bubbles/0/left.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Bubbles/0/right.png" type="Texture" id=3]
+[ext_resource path="res://Shaders/RadialGradient.shader" type="Shader" id=4]
+[ext_resource path="res://Shaders/EyeAnimation.shader" type="Shader" id=5]
+[ext_resource path="res://Scripts/MultiColorBubble.gd" type="Script" id=7]
+[ext_resource path="res://Sounds/pop.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sprites/Gimmicks/progress-circle.png" type="Texture" id=14]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/color_from = Color( 1, 1, 1, 1 )
+shader_param/color_to = null
+shader_param/center = Vector2( 0.5, 0 )
+shader_param/border = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/color_from = null
+shader_param/color_to = Color( 1, 1, 1, 1 )
+shader_param/center = Vector2( 0.5, 0 )
+shader_param/border = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/color_to = Color( 0.301961, 0.301961, 0.301961, 1 )
+shader_param/time = 1.0
+
+[sub_resource type="CircleShape2D" id=4]
+
+[node name="MultiColorBubble" type="TextureRect"]
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -640.0
+margin_right = -360.0
+margin_bottom = -640.0
+rect_pivot_offset = Vector2( 30, 30 )
+texture = ExtResource( 2 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightHalf" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="BlindMask" type="TextureRect" parent="."]
+material = SubResource( 3 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 30, 30 )
+texture = ExtResource( 1 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 30, 30 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( 30, 30 )
+scale = Vector2( 3.25, 3.25 )
+shape = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SoundTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+
+[node name="TProgress" type="TextureProgress" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = -30.0
+margin_right = 30.0
+margin_bottom = 30.0
+max_value = 30.0
+step = 0.0
+texture_progress = ExtResource( 14 )
+fill_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LockTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="Bubblefly" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="queue_free"]
+[connection signal="timeout" from="SoundTimer" to="." method="_on_SoundTimer_timeout"]

@@ -1,0 +1,231 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Prefabs/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Icons/back.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Quicksand-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/Shop.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Icons/coin-large.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Icons/gem-large.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Icons/more-coins.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Icons/more-coins-disabled.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 3 )
+
+[node name="Shop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 360, 640 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" parent="." instance=ExtResource( 1 )]
+self_modulate = Color( 0.301961, 0.301961, 0.301961, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 16.0
+margin_right = 96.0
+margin_bottom = 112.0
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+
+[node name="Title" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 24.0
+margin_right = 348.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Shop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wallet" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -328.0
+margin_top = 40.0
+margin_right = -32.0
+margin_bottom = 88.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoreCoins" parent="Wallet" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 48.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+disabled = true
+keep_pressed_outside = true
+texture_normal = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
+expand = true
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Wallet"]
+margin_left = 64.0
+margin_right = 112.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+texture = ExtResource( 5 )
+stretch_mode = 6
+
+[node name="Coins" type="Label" parent="Wallet"]
+margin_left = 128.0
+margin_top = 1.0
+margin_right = 172.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "00"
+
+[node name="TextureRect2" type="TextureRect" parent="Wallet"]
+margin_left = 188.0
+margin_right = 236.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+texture = ExtResource( 6 )
+stretch_mode = 6
+
+[node name="Gems" type="Label" parent="Wallet"]
+margin_left = 252.0
+margin_top = 1.0
+margin_right = 296.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "00"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_top = 0.106
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -32.0
+margin_top = 0.319992
+margin_right = 32.0
+rect_pivot_offset = Vector2( 360, 0 )
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_left = 168.0
+margin_right = 616.0
+margin_bottom = 1144.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradesTitle" type="Label" parent="ScrollContainer/ShopContainer"]
+margin_right = 448.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Upgrades"
+
+[node name="Upgrades" type="VBoxContainer" parent="ScrollContainer/ShopContainer"]
+margin_top = 92.0
+margin_right = 448.0
+margin_bottom = 92.0
+custom_constants/separation = 32
+
+[node name="ThemesTitle" type="Label" parent="ScrollContainer/ShopContainer"]
+margin_top = 124.0
+margin_right = 448.0
+margin_bottom = 184.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Themes"
+
+[node name="Themes" type="GridContainer" parent="ScrollContainer/ShopContainer"]
+margin_top = 216.0
+margin_right = 448.0
+margin_bottom = 216.0
+custom_constants/vseparation = 32
+custom_constants/hseparation = 32
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BubbleDecosTitle" type="Label" parent="ScrollContainer/ShopContainer"]
+margin_top = 248.0
+margin_right = 448.0
+margin_bottom = 308.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Bubble decorations"
+
+[node name="Decorations" type="GridContainer" parent="ScrollContainer/ShopContainer"]
+margin_top = 340.0
+margin_right = 448.0
+margin_bottom = 340.0
+custom_constants/vseparation = 32
+custom_constants/hseparation = 32
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundsTitle" type="Label" parent="ScrollContainer/ShopContainer"]
+margin_top = 372.0
+margin_right = 448.0
+margin_bottom = 432.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+text = "Backgrounds"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Backgrounds" type="GridContainer" parent="ScrollContainer/ShopContainer"]
+margin_top = 464.0
+margin_right = 448.0
+margin_bottom = 464.0
+custom_constants/vseparation = 32
+custom_constants/hseparation = 32
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="End" type="Control" parent="ScrollContainer/ShopContainer"]
+margin_top = 496.0
+margin_right = 448.0
+margin_bottom = 624.0
+rect_min_size = Vector2( 0, 128 )
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="Wallet/MoreCoins" to="." method="_on_MoreCoins_pressed"]

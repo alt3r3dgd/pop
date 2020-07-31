@@ -1,0 +1,199 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "Admob",
+"language": "GDScript",
+"path": "res://admob-lib/admob.gd"
+}, {
+"base": "Resource",
+"class": "Background",
+"language": "GDScript",
+"path": "res://Scripts/Background.gd"
+}, {
+"base": "TextureRect",
+"class": "Bubble",
+"language": "GDScript",
+"path": "res://Scripts/Bubble.gd"
+}, {
+"base": "Resource",
+"class": "BubbleDecorations",
+"language": "GDScript",
+"path": "res://Scripts/BubbleDecorations.gd"
+}, {
+"base": "Control",
+"class": "Explosion",
+"language": "GDScript",
+"path": "res://Scripts/Explosion.gd"
+}, {
+"base": "TextureRect",
+"class": "Field",
+"language": "GDScript",
+"path": "res://Scripts/Field.gd"
+}, {
+"base": "Control",
+"class": "GameOver",
+"language": "GDScript",
+"path": "res://Scripts/GameOver.gd"
+}, {
+"base": "Resource",
+"class": "GameTheme",
+"language": "GDScript",
+"path": "res://Scripts/GameTheme.gd"
+}, {
+"base": "Node",
+"class": "Gpgs",
+"language": "GDScript",
+"path": "res://Scripts/GPGS.gd"
+}, {
+"base": "Control",
+"class": "Main",
+"language": "GDScript",
+"path": "res://Scripts/Main.gd"
+}, {
+"base": "Control",
+"class": "MainMenu",
+"language": "GDScript",
+"path": "res://Scripts/MenuMain.gd"
+}, {
+"base": "TextureRect",
+"class": "MultiColorBubble",
+"language": "GDScript",
+"path": "res://Scripts/MultiColorBubble.gd"
+}, {
+"base": "ColorRect",
+"class": "PausePopup",
+"language": "GDScript",
+"path": "res://Scripts/PausePopup.gd"
+}, {
+"base": "ColorRect",
+"class": "QuitPopup",
+"language": "GDScript",
+"path": "res://Scripts/QuitPopup.gd"
+}, {
+"base": "Control",
+"class": "Settings",
+"language": "GDScript",
+"path": "res://Scripts/Settings.gd"
+}, {
+"base": "Control",
+"class": "Shop",
+"language": "GDScript",
+"path": "res://Scripts/Shop.gd"
+}, {
+"base": "Panel",
+"class": "ShopItem",
+"language": "GDScript",
+"path": "res://Scripts/ShopItem.gd"
+}, {
+"base": "ColorRect",
+"class": "ShopPopup",
+"language": "GDScript",
+"path": "res://Scripts/ShopPopup.gd"
+}, {
+"base": "ColorRect",
+"class": "TutorialPopup",
+"language": "GDScript",
+"path": "res://Scripts/TutorialPopup.gd"
+}, {
+"base": "Resource",
+"class": "Upgrade",
+"language": "GDScript",
+"path": "res://Scripts/Upgrade.gd"
+}, {
+"base": "Panel",
+"class": "UpgradeItem",
+"language": "GDScript",
+"path": "res://Scripts/UpgradeItem.gd"
+} ]
+_global_script_class_icons={
+"Admob": "res://admob-lib/icon.png",
+"Background": "",
+"Bubble": "res://Sprites/Bubbles/0/full.png",
+"BubbleDecorations": "",
+"Explosion": "",
+"Field": "",
+"GameOver": "",
+"GameTheme": "",
+"Gpgs": "res://Sprites/play_games.png",
+"Main": "",
+"MainMenu": "",
+"MultiColorBubble": "res://Sprites/Bubbles/0/left.png",
+"PausePopup": "",
+"QuitPopup": "",
+"Settings": "res://Sprites/Icons/settings.png",
+"Shop": "res://Sprites/Icons/shop.png",
+"ShopItem": "res://Sprites/Icons/shop.png",
+"ShopPopup": "res://Sprites/Icons/shop.png",
+"TutorialPopup": "",
+"Upgrade": "",
+"UpgradeItem": "res://Sprites/Icons/shop.png"
+}
+
+[android]
+
+modules="org/godotengine/godot/GodotAdMob,org/godotengine/godot/PlayGameServices"
+
+[application]
+
+config/name="Pop"
+run/main_scene="res://Scenes/Main.tscn"
+boot_splash/image="res://Sprites/App resources/alt-colored-logo.png"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
+config/auto_accept_quit=false
+config/quit_on_go_back=false
+
+[autoload]
+
+Globals="*res://Scenes/Globals.tscn"
+AdMob="*res://Scenes/AdMob.tscn"
+GPGS="*res://Scenes/GPGS.tscn"
+
+[debug]
+
+settings/stdout/verbose_stdout=true
+gdscript/completion/autocomplete_setters_and_getters=true
+gdscript/warnings/narrowing_conversion=false
+gdscript/warnings/return_value_discarded=false
+gdscript/warnings/integer_division=false
+
+[display]
+
+window/size/width=720
+window/size/height=1280
+window/size/test_width=540
+window/size/test_height=960
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[gdnative]
+
+singletons=[  ]
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[network]
+
+limits/debugger_stdout/max_chars_per_second=40000
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=1
+quality/intended_usage/framebuffer_allocation.mobile=1
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+quality/reflections/texture_array_reflections=false
+quality/reflections/high_quality_ggx=false
+environment/default_clear_color=Color( 1, 1, 1, 1 )
